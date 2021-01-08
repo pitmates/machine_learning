@@ -65,7 +65,7 @@ class DatingTest:
         for i in range(testVec):
             classifyRes = classifier.knn(dataset[i])
             # print("the classifier came back with: {}, the real answer is: {}, is correct: {}".format(classifyRes, labels[i], classifyRes == labels[i]))
-            if (classifyRes != labels[i]):
+            if classifyRes != labels[i]:
                 errorCount += 1
                 print("the classifier came back with: {}, the real answer is: {}, the error id is: {}".format(classifyRes, labels[i], i))
         print("the total error count is: {}, the error rate is: {}".format(errorCount, errorCount / testVec))
@@ -109,7 +109,7 @@ class HandWrittingDigitalTest:
             classifier = KNN(3, trainingMat, hwLabels)
             classifyRes = classifier.knn(testVec)
             # print("the classifier came back with: {}, the real answer is: {}, is correct: {}".format(classifyRes, num, classifyRes == num))
-            if (classifyRes != num):
+            if classifyRes != num:
                 errorCount += 1
                 print("the classifier came back with: {}, the real answer is: {}, the error file name is: {}".format(classifyRes, num, name))
         print("the total error count is: {}, the error rate is: {}".format(errorCount, errorCount / len(testList)))
