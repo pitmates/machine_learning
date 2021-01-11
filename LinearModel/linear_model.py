@@ -5,7 +5,7 @@ import os
 class Logit:
     def __init__(self, X, Y):
         self.X = X
-        W = np.random.rand(X.shape[1]+1)
+        W = np.random.rand(X.shape[1]+1) * 2 - 1
         self.W = W[:-1]
         self.b = W[-1]
         self.Y = Y
@@ -19,8 +19,9 @@ class Logit:
     def test(self):
         print("x:\n", self.X)
         print("w:\n", self.W)
+        print("b:\n", self.b)
         # print(self.b)
-        print("\n", self.linear_func())
+        print("\n", self.get_z())
 
 
 
