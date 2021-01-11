@@ -1,27 +1,36 @@
 import numpy as np
+import pandas as pd
 import os
 
 
 class Logit:
     def __init__(self, X, Y):
         self.X = X
-        W = np.random.rand(X.shape[1]+1) * 2 - 1
+        W = np.random.rand(X.shape[1]) * 2 - 1
         self.W = W[:-1]
-        self.b = W[-1]
         self.Y = Y
 
     def sigmoid(self, z):
         return 1 / (1 + np.exp(-z))
 
+
     def get_z(self):
-        return np.dot(self.X, self.W.T) + self.b
+        m, n = self.X.shape
+        print(m, n, self.X.shape)
+
+    def gradient(self):
+        pass
+
+
+    def logistic_regression(self, iteration=100, lr=1.0, method='gradient'):
+        # self.beta = self.init_beta(n)
+        pass
 
     def test(self):
         print("x:\n", self.X)
         print("w:\n", self.W)
-        print("b:\n", self.b)
         # print(self.b)
-        print("\n", self.get_z())
+        self.get_z()
 
 
 
