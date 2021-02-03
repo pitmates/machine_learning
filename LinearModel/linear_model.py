@@ -15,7 +15,7 @@ class Logit:
         _lr = []
         for i in range(10):
             _lr.append(lr - i*0.1)
-        print(_lr)
+        # print(_lr)
         return _lr
 
     def initBeta(self):
@@ -24,9 +24,9 @@ class Logit:
     def sigmoid(self, z):
         return 1 / (1 + np.exp(-z))
 
-    def J_cost(self):
+    def J_cost(self, beta):
         X_Aug = np.concatenate((self.X, np.ones((self.X.shape[0], 1))), axis=1)
-        beta = self.Beta.reshape(-1, 1)
+        beta = beta.reshape(-1, 1)
         y = self.Y.reshape(-1, 1)
         betaX = np.dot(X_Aug, beta)
 
@@ -53,7 +53,7 @@ class Logit:
         self.Beta = beta
         return beta
 
-    def logistic_regression(self):
+    def regression(self):
         
         if self.method == 'grad':
             return self.gradDesc()
